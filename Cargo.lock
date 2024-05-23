@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "cleva"
+name = "cleva-transpiler"
 version = "0.1.0"

@@ -1,7 +1,10 @@
 [package]
-name = "cleva"
+name = "cleva-transpiler"
 version = "0.1.0"
 edition = "2021"
+description = "Cleva is a programming language designed to be used sorely for Competeive programming contests"
+authors = ["Indithem"]
+license = "WTFPL"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
