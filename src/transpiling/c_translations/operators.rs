@@ -1,10 +1,10 @@
 use super::CSyntax;
 
-use super::super::ast::operators;
+use super::super::ast::{BinaryOp, InplaceOp, UnaryOp};
 
-impl CSyntax for operators::BinaryOp {
+impl CSyntax for BinaryOp {
     fn to_c_syntax(&self) -> String {
-        use operators::BinaryOp::*;
+        use BinaryOp::*;
         match self {
             Add => "+",
             Subtract => "-",
@@ -31,15 +31,15 @@ impl CSyntax for operators::BinaryOp {
     }
 }
 
-impl CSyntax for operators::InplaceOp{
+impl CSyntax for InplaceOp{
     fn to_c_syntax(&self) -> String {
         self.to_binary_op().to_c_syntax()
     }
 }
 
-impl CSyntax for operators::UnaryOp {
+impl CSyntax for UnaryOp {
     fn to_c_syntax(&self) -> String {
-        use operators::UnaryOp::*;
+        use UnaryOp::*;
         match self {
             Negate => "-",
             Not => "!",

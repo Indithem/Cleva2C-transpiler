@@ -7,7 +7,7 @@ use super::{
 /// all expressions are of type (), the 'unit' type
 pub type Statements = Vec<Statement>;
 
-#[derive(Clone)]
+#[cfg_attr(test, derive(Clone))]
 pub enum Statement {
     Expression(Expression),
 

@@ -4,8 +4,9 @@
 /// Use Transpiler::transpile(ast) to achieve this. 
 
 use super::ast::{
-    statements::{Statements, Statement},
-    expression::{Expression, ExpressionKind}
+    Statements, Statement,
+    Expression, ExpressionKind,
+    Literals,
 };
 
 use super::c_translations::CSyntax;
@@ -50,9 +51,10 @@ impl Transpiler{
 
     fn transpile_expression(ast:&Expression) -> String {
         use ExpressionKind::*;
+        use Literals::*;
         match &ast.kind {
             Variable(s)   => s.to_string(),
-            Literal => "1".to_string(), //todo!
+            Literal(l) => l.to_c_syntax(),
             Unary(op, e) => format!("{}({})", op.to_c_syntax(), Self::transpile_expression(&*e)),
             Binary(op, e1, e2) => format!("({}){}({})", Self::transpile_expression(&*e1), op.to_c_syntax(), Self::transpile_expression(&*e2)),
             Block(statements, e) => format!("{}; {}", Self::transpile_statements(&statements), Self::transpile_expression(&*e))

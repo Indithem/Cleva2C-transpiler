@@ -10,7 +10,7 @@
 /// 
 /// Type checking will be done later.
 #[cfg_attr(test, derive(strum::EnumIter, PartialEq))]
-#[derive(Clone)]
+#[cfg_attr(test, derive(Clone))]
 pub enum BinaryOp {
     // for numbers
     /// The `+` operator
@@ -68,7 +68,7 @@ pub enum BinaryOp {
 /// 
 /// Type checking will be done later.
 #[cfg_attr(test, derive(strum::EnumIter, PartialEq))]
-#[derive(Clone)]
+#[cfg_attr(test, derive(Clone))]
 pub enum UnaryOp {
     // for numbers
     /// The `-` operator
@@ -94,7 +94,7 @@ pub enum UnaryOp {
 /// These are just some syntac sugars.
 /// x #= y is the same as x = x#y.
 #[cfg_attr(test, derive(strum::EnumIter, PartialEq))]
-#[derive(Clone)]
+#[cfg_attr(test, derive(Clone))]
 pub enum InplaceOp{
     /// The `+=` operator
     Add,

@@ -1,20 +1,20 @@
 use super::{
     operators::{BinaryOp, UnaryOp},
     statements::Statements,
+    literals::Literals,
 };
 
 /// Represents an expression in the AST
-#[derive(Clone)]
+#[cfg_attr(test, derive(Clone))]
 pub struct Expression {
     pub kind: ExpressionKind,
 }
 
-#[derive(Clone)]
-
+#[cfg_attr(test, derive(Clone))]
 pub enum ExpressionKind {
     // base cases
     Variable(String),
-    Literal,
+    Literal(Literals),
 
     // operations
     Unary(UnaryOp, Box<Expression>),
